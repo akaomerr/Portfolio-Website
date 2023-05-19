@@ -1,0 +1,10 @@
+.nav-item-texts{
+    font-family: 'Concert One', cursive;
+    font-size: 135%;
+}
+.navbar-button:hover{
+    background-color: #8294C4;
+}
+.nav-item a:hover{
+    color: #8294C4;
+}
