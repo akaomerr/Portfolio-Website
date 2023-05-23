@@ -18,16 +18,18 @@ body, html {
     height: 100%;
 }
 .hr-elements{
-    position: absolute;
+    width: 90%;
     color: white !important;
-    width: 40%;
-    margin-left: 50%;
+    word-wrap: break-word;
 }
 .information-image {
     height: 100%;
-    background-image: url("background.png");
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    -ms-filter: blur(7px);
+    filter: blur(7px);
+    background-image: url("background.png") !important;
     background-position: center;    
     background-repeat: no-repeat;
     background-size: cover; 
@@ -36,7 +38,7 @@ body, html {
     font-weight: bold;
     border: 3px solid #f1f1f1;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -45,21 +47,35 @@ body, html {
     padding: 20px;
     text-align: center;
 }
+.first-half{
+    position: absolute;
+    width: 50%;
+    height: 90%;
+}
+.second-half{
+    float: right;
+    width: 50%;
+    height: 90%;
+    margin: 3%;
+}
 .user-tag{
     float: left;
-    margin-left:3%;
-    margin-top: 3%;
+    margin-left:5%;
+    margin-top: 10%;
     font-size: 90%;
 }
 .user-tag2{
     clear: both;
-    padding-top: 2%;
+    padding-top: 10%;
+    margin-right: 5%;
     float: left;
     word-wrap: break-word;
 }
 .social-media-icons{
     font-size: 170%;
     float: left;
+    padding-top: 20%;
 }
+
 
 
