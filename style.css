@@ -76,6 +76,30 @@ body, html {
     float: left;
     padding-top: 20%;
 }
-
+.card-img-top {
+    position: relative;
+    transition: transform 0.3s ease;
+    z-index: 2 !important;
+  }
+.card-body {
+    position: relative;
+    bottom: 0;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    transition: transform 0.7s ease;
+    transform: translateY(-100%);
+    z-index: 1 !important;
+}
+.card-img-top:hover {
+    transform: translateY(-20%);
+  }
+  
+.card-img-top:hover + .card-body {
+    transform: translateY(0);
+  }
+  
 
 
