@@ -80,6 +80,7 @@ body, html {
     position: relative;
     transition: transform 0.3s ease;
     z-index: 2 !important;
+    height: 310px;
   }
 .card-body {
     position: relative;
