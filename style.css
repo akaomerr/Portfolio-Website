@@ -95,12 +95,28 @@ body, html {
     z-index: 1 !important;
 }
 .card-img-top:hover {
-    transform: translateY(-20%);
+    transform: translateY(-5%);
   }
   
 .card-img-top:hover + .card-body {
     transform: translateY(0);
   }
-  
+  @media (max-width:900px){
+    .carousel-control-prev-icon{
+        display: none !important;
+    }
+    .carousel-control-next-icon{
+        display: none !important;
+    }
+  }
+.carousel-position{
+    position: absolute;
+    width: 60%;
+    top: 10%;
+    left: 20%;
+}
+.d-block{
+    border-radius: 50px;
+}
 
 

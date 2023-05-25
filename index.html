@@ -13,25 +13,34 @@
 </head>
 <!-- Bootstrap carousel yapılabilir. -->
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #ACB1D6;">
-        <div class="container-fluid">
-          <button class="navbar-toggler navbar-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item nav-item-texts">
-                <a class="nav-link" href="index.html">Home</a>
-              </li>
-              <li class="nav-item nav-item-texts">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
-              </li>
-              <li class="nav-item nav-item-texts">
-                <a class="nav-link " href="contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
+  <div class="carousel-position">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="background4.jpg" class="d-block w-100" alt="...">
         </div>
-      </nav>
+        <div class="carousel-item">
+          <img src="background2.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="background3.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <script>
+      const myCarouselElement = document.querySelector('#carouselExampleFade')
+      const carousel = new bootstrap.Carousel(myCarouselElement, {
+        touch: true,
+      })
+    </script>
+  </div>
 </body>
 </html>
