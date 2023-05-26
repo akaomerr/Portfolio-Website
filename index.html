@@ -14,16 +14,130 @@
 <!-- Bootstrap carousel yapılabilir. -->
 <body>
   <div class="carousel-position">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade deneme">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="background4.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-item active" style="background-color: black;">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <img src="profile-photo.png" class="profile-photo">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p style="margin-top: 20px; color: white;"> I initially focused my studies on the Python language, 
+                  and I've always been captivated by subjects like artificial intelligence and machine learning. Currently, 
+                  I am actively enhancing my skills in full-stack development.
+                  This is my portfolio site and here you can view my projects or contact me</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <a href="portfolio.html"><img src="background2.jpg" class="d-block w-100" alt="..."></a>
+        <div class="carousel-item" style="background-color: green;">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <a href="portfolio.html"><img src="portfolio.png" class="portfolio-photo" id="myImage" onmouseover="startAnimation()" onmouseout="stopAnimation()">
+                </a>
+                <script>
+                  var animationInterval;
+                  function startAnimation() {
+                    var image = document.getElementById("myImage");
+                    image.classList.add("shake-animation");
+                  }
+
+                  function stopAnimation() {
+                    var image = document.getElementById("myImage");
+                    image.classList.remove("shake-animation");
+                  }
+                </script>
+              </div>
+            </div>
+            <div class="row" style="padding-left: 90px; padding-right: 90px;">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="python.png" id="bounce-img-python">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="css.png" id="bounce-img-css">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="html.png" id="bounce-img-html">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="javascript.png" id="bounce-img-js">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="microprocessor.png" id="bounce-img-mp">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="sql.png" id="bounce-img-sql">
+              </div>
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <img class="logo-size" src="sensor.png" id="bounce-img-sensor">
+              </div>
+              <script>
+                const imgPython=document.getElementById('bounce-img-python');
+                const imgCSS=document.getElementById('bounce-img-css');
+                const imgHTML=document.getElementById('bounce-img-html');
+                const imgJS=document.getElementById('bounce-img-js');
+                const imgMP=document.getElementById('bounce-img-mp');
+                const imgSQL=document.getElementById('bounce-img-sql');
+                const imgSensor=document.getElementById('bounce-img-sensor');
+                imgPython.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgPython.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgCSS.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgCSS.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgJS.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgJS.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgHTML.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgHTML.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgMP.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgMP.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgSQL.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgSQL.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+                imgSensor.addEventListener('mouseover', function() {
+                  this.style.animation = 'bounce 1.2s infinite';
+                });
+                imgSensor.addEventListener('mouseout', function() {
+                  this.style.animation = '';
+                });
+              </script>
+            </div>
+          </div>
         </div>
-        <div class="carousel-item">
-          <a href="contact.html"><img src="background3.jpg" class="d-block w-100" alt="..."></a>
+        <div class="carousel-item" style="background-color: yellow;">
+          <div class="container text-center">
+            <div class="row">
+              <a href="contact.html"><img src="contactme.png" class="contact-img"></a>
+            </div>
+            <div class="row">
+              <p></p>
+            </div>
+          </div>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
