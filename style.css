@@ -118,6 +118,9 @@ body, html {
     top: 10%;
     left: 20%;
 }
+.carousel-item{
+  height: 600px;
+}
 .profile-photo{
     margin-top: 2%;
     width: 20%;
@@ -155,10 +158,15 @@ body, html {
     width: 50%;
     margin: 20px;
   }
-@media (max-width:576px) {
-    .logo-size{
-        width:30%;
+@media (max-width:650px) {
+    .carousel-item{
+      height: 800px;
     }
+}
+@media (max-width:576px) {
+  .logo-size{
+    width:30%;
+}
 }
 
 @-webkit-keyframes bounce {

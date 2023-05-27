@@ -14,9 +14,9 @@
 <!-- Bootstrap carousel yapılabilir. -->
 <body>
   <div class="carousel-position">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade deneme">
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
       <div class="carousel-inner">
-        <div class="carousel-item active" style="background-color: black;">
+        <div class="carousel-item active" style="background-color: #8294C4;">
           <div class="container text-center">
             <div class="row">
               <div class="col">
@@ -25,7 +25,7 @@
             </div>
             <div class="row">
               <div class="col">
-                <p style="margin-top: 20px; color: white;"> I initially focused my studies on the Python language, 
+                <p style="margin-top: 20px; color: white; font-size: 180%; margin-top: 30px; margin-bottom: 50px;"> I initially focused my studies on the Python language, 
                   and I've always been captivated by subjects like artificial intelligence and machine learning. Currently, 
                   I am actively enhancing my skills in full-stack development.
                   This is my portfolio site and here you can view my projects or contact me</p>
@@ -33,20 +33,20 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-color: green;">
+        <div class="carousel-item" style="background-color: #8294C4;">
           <div class="container text-center">
             <div class="row">
               <div class="col">
-                <a href="portfolio.html"><img src="portfolio.png" class="portfolio-photo" id="myImage" onmouseover="startAnimation()" onmouseout="stopAnimation()">
+                <a href="portfolio.html"><img src="portfolio.png" class="portfolio-photo" id="myImage" onmouseover="startPortfolioAnimation()" onmouseout="stopPortfolioAnimation()">
                 </a>
                 <script>
                   var animationInterval;
-                  function startAnimation() {
+                  function startPortfolioAnimation() {
                     var image = document.getElementById("myImage");
                     image.classList.add("shake-animation");
                   }
 
-                  function stopAnimation() {
+                  function stopPortfolioAnimation() {
                     var image = document.getElementById("myImage");
                     image.classList.remove("shake-animation");
                   }
@@ -129,13 +129,26 @@
             </div>
           </div>
         </div>
-        <div class="carousel-item" style="background-color: yellow;">
-          <div class="container text-center">
+        <div class="carousel-item" style="background-color: #8294C4;">
+          <div class="text-center">
             <div class="row">
-              <a href="contact.html"><img src="contactme.png" class="contact-img"></a>
+              <div class="col">
+                <a href="contact.html"><img style="margin-top: 40px ;" src="contactme.png" class="contact-img" id="contact-imgjs" onmouseover="startContactAnimation()" onmouseout="stopContactAnimation()"></a>
+                <script>
+                  var animationInterval;
+                  function startContactAnimation() {
+                    var image = document.getElementById("contact-imgjs");
+                    image.classList.add("shake-animation");
+                  }
+                  function stopContactAnimation() {
+                    var image = document.getElementById("contact-imgjs");
+                    image.classList.remove("shake-animation");
+                  }
+                </script>
+              </div>
             </div>
             <div class="row">
-              <p></p>
+              <h2 style="margin-top: 42px; margin-bottom: 60px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">You can find my contact information here!</h2>
             </div>
           </div>
         </div>
