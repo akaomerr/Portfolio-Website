@@ -29,7 +29,7 @@ body, html {
     -o-filter: blur(7px);
     -ms-filter: blur(7px);
     filter: blur(7px);
-    background-image: url("background.png") !important;
+    background-image: url("/Portfolio-Website/images/background.png") !important;
     background-position: center;    
     background-repeat: no-repeat;
     background-size: cover; 
