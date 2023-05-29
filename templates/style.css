@@ -246,3 +246,19 @@ body, html {
   margin-left: 60px;
   margin-right: 60px;
 }
+.morse-frame{
+  margin: 20px 40px 20px 40px;
+}
+.morse-img{
+  margin-top: 50px;
+  display: grid;
+  place-items: center;
+}
+.text-frame{
+  margin: 5% 10% 5% 10%;
+}
+.bm-class{
+  margin-top: 50px;
+  border-radius: 10px;
+  width:80%;
+}

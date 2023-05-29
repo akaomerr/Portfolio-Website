@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+</head>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #ACB1D6;">
+        <div class="container-fluid">
+          <button class="navbar-toggler navbar-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item nav-item-texts">
+                <a class="nav-link" href="/Portfolio-Website/index.html">Home</a>
+              </li>
+              <li class="nav-item nav-item-texts">
+                <a class="nav-link" href="portfolio.html">Portfolio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="morse-frame">
+        <h1 style="text-align: center; font-size: 2.7rem;"> Book and Movie Rater</h1>
+        <div class="morse-img">
+            <img src="/Portfolio-Website/images/book-movie-img.png" style="width: 20%;">
+        </div>
+        <div class="text-frame">
+            <p>
+                I developed a website where the admin votes for books or movies. I enabled users to get information by clicking on the link of the book/movie.
+                I designed this program with Flask because I wanted this website to run on its own server.
+                I also solved keeping the voting information of the books/movies with CSV files.
+            </p>
+            <img class="bm-class" src="/Portfolio-Website/images/bm.png">
+            <img class="bm-class" src="/Portfolio-Website/images/bm1.png">
+        </div>
+        <h3 style="margin-bottom: 30px;">The code I wrote for this project:</h3>
+        <pre>
+            <code class="language-python">
+from flask import Flask, render_template, redirect, url_for
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, SelectField
+from wtforms.validators import DataRequired, URL
+from flask_bootstrap import Bootstrap
+import csv
+class MovieForm(FlaskForm):
+    movie=StringField('Movie Name', validators=[DataRequired()])
+    movielink=StringField('IMDB Link', validators=[DataRequired(), URL()])
+    storyrate=SelectField('Story', validators=[DataRequired()], choices=["📜","📜📜","📜📜📜","📜📜📜📜","📜📜📜📜📜"])
+    cinematography=SelectField('Cinematography', validators=[DataRequired()], choices=["📽️","📽️📽️","📽️📽️📽️","📽️📽️📽️📽️","📽️📽️📽️📽️📽️"])
+    characters=SelectField('Characters', validators=[DataRequired()], choices=["👻","👻👻","👻👻👻","👻👻👻👻","👻👻👻👻👻"])
+    cast=SelectField('Cast', validators=[DataRequired()], choices=["💜","💜💜","💜💜💜","💜💜💜💜","💜💜💜💜💜"])
+    submit=SubmitField('Submit')
+                
+class BookForm(FlaskForm):
+    book=StringField('Book Name', validators=[DataRequired()])
+    booklink=StringField('Book Link', validators=[DataRequired(), URL()])
+    storyrate=SelectField('Story', validators=[DataRequired()], choices=["📜","📜📜","📜📜📜","📜📜📜📜","📜📜📜📜📜"])
+    fluency=SelectField('Fluency', validators=[DataRequired()], choices=["😯","😯😯","😯😯😯","😯😯😯😯","😯😯😯😯😯"])
+    characters=SelectField('Characters', validators=[DataRequired()], choices=["👻","👻👻","👻👻👻","👻👻👻👻","👻👻👻👻👻"])
+    submit=SubmitField('Submit')
+                
+app=Flask(__name__)
+app.config['SECRET_KEY']="your secret key" #Required to encrypt our Flask app
+bootstrap=Bootstrap(app)
+@app.route('/')
+def index():
+    return render_template('index.html')
+                
+@app.route('/addforbook', methods=['GET','POST'])
+def addforbook():
+    bookform=BookForm()
+    if bookform.validate_on_submit():
+        with open("book-data.csv", mode='a', encoding='UTF-8') as csv_file:
+            csv_file.write(f"\n{bookform.book.data},"
+                            f"{bookform.booklink.data},"
+                            f"{bookform.storyrate.data},"
+                            f"{bookform.fluency.data},"
+                            f"{bookform.characters.data}")
+        return redirect(url_for('books'))
+    return render_template('bookadd.html',form=bookform)
+                
+@app.route('/books')
+def books():
+    with open("book-data.csv", newline='', encoding='UTF-8') as csv_file:
+        csv_data=csv.reader(csv_file, delimiter=',')
+        list_of_rows=[]
+        for row in csv_data:
+            list_of_rows.append(row)
+    return render_template('books.html',books=list_of_rows)
+                          
+@app.route('/addformovie', methods=['GET','POST'])
+def addformovie():
+    movieform=MovieForm()
+    if movieform.validate_on_submit():
+        with open("movie-data.csv", mode='a', encoding='UTF-8') as csv_file:
+            csv_file.write(f"\n{movieform.movie.data},"
+                            f"{movieform.movielink.data},"
+                            f"{movieform.storyrate.data},"
+                            f"{movieform.cinematography.data},"
+                            f"{movieform.characters.data},"
+                            f"{movieform.cast.data}")
+        return redirect(url_for('movies'))
+    return render_template('moviadd.html',form=movieform)
+@app.route('/movies')
+def movies():
+    with open("movie-data.csv", newline='', encoding='UTF-8') as csv_file:
+        csv_data=csv.reader(csv_file, delimiter=',')
+        list_of_rows=[]
+        for row in csv_data:
+            list_of_rows.append(row)
+    return render_template('movies.html',movies=list_of_rows)
+                
+if __name__=='__main__':
+    app.run(debug=True)      
+            </code>
+        </pre>
+        <script>
+            Prism.highlightAll();
+        </script>
+      </div>
+</body>
+</html>
