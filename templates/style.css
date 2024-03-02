@@ -168,7 +168,7 @@ body, html {
     animation-iteration-count: infinite;
   }
   .logo-size{
-    width: 50%;
+    width: 40%;
     margin: 20px;
   }
 @media (max-width:891px) {
@@ -200,10 +200,10 @@ body, html {
   .index-p{
     color: black; 
     font-size: 22px !important; 
-    margin-top: 40px !important; 
+    margin-top: 120px !important; 
   }
 }
-@media (max-width:576px) {
+@media (max-width:452px) {
   .logo-size{
     width:30%;
 }
@@ -218,7 +218,11 @@ body, html {
 .index-p{
   color: black; 
   font-size: 20px !important; 
-  margin-top: 40px !important; 
+  margin-top: 120px !important; 
+}
+.logo-size{
+  width: 70%;
+  margin: 20px;
 }
 }
 .portfolio-element{
@@ -312,5 +316,5 @@ body, html {
   font-family: 'Patua One', cursive;
   color: black; 
   font-size: 30px; 
-  margin-top: 100px; 
+  margin-top: 180px; 
 }
